@@ -1,0 +1,158 @@
+context Api : allows to share the data btw component without passing props 
+prop drilling: use to pass a specific info of  user using props 
+
+redux: is a predictable state management library for java script application that maintains state
+ in a centralize store and updates it through reducer action and dispatch 
+ Terms:=> 
+ store: storage/ central  page that store all the data
+ slide: logic part (brain of project)
+reducer : function that decide how the data changes
+action :process ->increment/decrement/reset
+dispatch: the way to send the action
+props : pass data from one component to another component ,from parent to child
+state : store dynamic data inside the component 
+usestate: is a react hook used to store and manage the data that can change inside the component
+=> we are using functional component
+syntax:
+const[state,setState]=useState[initialValue]
+how it works:
+const[count,setCount]=useState[0]
+Note: a react hook is a special js function that leads functional component access react feature such as usestate,useeffect,usereducer,context and refrences
+state means current value
+setState is a updating function 
+useEffect is a react hook used to perform side Effects in functional component such as api calls,timers,event listeners and intercation with external systems
+syntax:
+useEffect(().=>{
+},[])
+url : uniform resource located
+download:react-router-dom
+Routes : it is a container for all the routes component and define all the routing configuration
+HTTP vs HTTPS
+HTTP:
+- Data sent as plain text
+- Anyone on the network can read it
+- Uses port 80
+- No padlock icon in the browser
+HTTPS:
+- Data is encrypted before sending
+- Unreadable even if intercepted
+- Uses port 443
+- Shows a padlock icon in the browser
+Local Storage vs Session Storage
+Lifetime:
+- Local Storage: Stays until manually cleared
+- Session Storage: Cleared when tab is closed
+Scope:
+- Local Storage: Shared across all tabs of same site
+- Session Storage: Limited to a single tab
+Typical size:
+- Local Storage: 5-10 mb per origin
+- Session Storage: ~5 mb per origin
+Best for:
+- Local Storage: Long term preference (theme, language)
+- Session Storage: Temporary data for one visit
+Type Conversion
+Implicit: Done automatically
+- "5" + 3; -> 53
+- "5" - 3; -> 2
+- 1 + true -> 1
+Explicit: Done manually
+- Number("42") -> 42
+- String(100) -> "100"
+- Boolean(0) -> false
+- Boolean("") -> null [Note: or false depending on language context]
+- Boolean("hi") -> true
+Sum of even numbers:
+100 + 98 + 96 + 94
+Q. Write a program to find sum of Fibonacci series till nth term using arrow function.
+e.g. 1, 2, 3, 5
+     0, 1, 1, 2, 3, 5, 8, 13
+DOM (Document Object Model)
+Notes:
+- We cannot manipulate HTML elements directly; first we have to make changes in the object, and after that we can do it.
+- Window: Global object having a lot of properties.
+
+Why DOM is needed?:
+- We can perform manipulation along with JavaScript objects, which is why we convert elements into objects and use the DOM.
+
+FLOWCHART (DOM Structure):
+
+[Window Obj]
+     │
+     ▼
+[Document] ──(console.dir(document))──► [Show]
+     │
+     ▼
+[Html File]
+     │
+     ├──► [head]
+     │     ├──► [meta]
+     │     └──► [title / html]
+     │
+     └──► [body]
+           ├──► [h1]
+           │     └──► [My name is Rampas]
+           └──► [h2]
+Axions
+
+- Axions is a 3rd party promised-based https client (HTTP) used to make HTTP requests (calling an API) from the browser in an easy and better way.
+- We can say, Axions is the upgraded version of fetch method.
+- Almost 70% of React users use axions to make HTTP requests for backend like Node JS.
+
+Fetch vs Axions:
+
+1. Fetch:
+- Use parse method to use JSON format
+- Need to use more then() [Need to use multiple .then()]
+- Provide... [Basic features]
+- Built in browser (no install needed)
+2. Axions:
+- By default use JSON format
+- Need to use only one then()
+- Provide all type of HTTP method
+- Better error handling
+- Third party package (npm install)
+Additional Notes:
+- Installation: npm install Axions
+- Rectify the code based on the status code.
+- Request and response handled by Axios.
+React
+
+- It works upon component-based architecture followed by MVC (Model, View, Controller) where controller is for sending and receiving the request, model is for structuring the data, and view is responsible for building the page.
+Features of React:
+- Reusable components
+- Faster updates
+- Easy to maintain
+- Single page application
+(Side note: SVG: Scalable Vector Graphics)
+State in React:
+- State is an internal data that belongs to a particular component and can change over time.
+Linter (Oxilint / ESLint):
+- Tool/common file in React, detects error, unused code and other potential problems.
+package.json:
+- Configuration of node modules.
+package-lock.json:
+- Any npm can create it, install required module.
+
+
+<> </> -> Fragment
+Example Code:
+function App() {
+  return (
+    <>  {/* Fragment without <div> */}
+      <Student />
+    </>
+  )
+}
+export default App;
+Linter:
+- Linter is a tool that checks your code and tells you about possible mistakes, bad practices, or code style problems before they cause bigger problems.
+Props:
+- Props are used to pass data from one component to another component, usually from parent component to child component.
+- Think: props like argument in a function.
+Example Code:
+App.js:
+<Student name={'Rampas'} age={21} />
+Student.js:
+<h1> Name: {props.name} </h1>
+<h2> Age: {props.age} </h2>

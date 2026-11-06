@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TaskNest - Personal productivity and cycle tracking dashboard">
+    <title>TaskNest | Personal Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">✿</span>
+                <h2>TaskNest</h2>
+            </div>
+
+            <nav class="navigation">
+                <button class="nav-item active" data-section="overview">
+                    🏠 Overview
+                </button>
+                <button class="nav-item" data-section="calendar">
+                    📅 Calendar
+                </button>
+                <button class="nav-item" data-section="history">
+                    📖 History
+                </button>
+                <button class="nav-item" data-section="symptoms">
+                    💗 Symptoms
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button id="themeBtn" class="theme-btn">
+                    🌙 Toggle Theme
+                </button>
+                <p>TaskNest © 2026</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Overview Section -->
+            <section id="overview" class="page-section">
+                <header class="top-header">
+                    <div>
+                        <h1 id="greeting">Welcome to TaskNest!</h1>
+                        <p>Your personal tracking dashboard</p>
+                    </div>
+                    <button class="primary-btn" id="overviewLogBtn">
+                        + Log Period
+                    </button>
+                </header>
+
+                <div class="hero-card">
+                    <h2 id="cycleGreeting">Your cycle overview</h2>
+                    <p id="cycleMessage">Track your cycle and understand your patterns.</p>
+
+                    <div class="progress-info">
+                        <div>
+                            <span>Current Cycle Day</span>
+                            <h2 id="currentCycleDay">--</h2>
+                        </div>
+                        <div>
+                            <span>Days Until Next Period</span>
+                            <h2 id="daysUntilPeriod">--</h2>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div id="cycleProgressFill" class="progress-fill"></div>
+                    </div>
+                    <p id="cycleProgressText">Cycle progress</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p>Average Cycle Length</p>
+                        <h2 id="averageCycleLength">28 days</h2>
+                    </div>
+                    <div class="stat-card">
+                        <p>Average Period Length</p>
+                        <h2 id="averagePeriodLength">5 days</h2>
+                    </div>
+                    <div class="stat-card">
+                        <p>Last Period</p>
+                        <h2 id="lastPeriodDate">Not recorded</h2>
+                    </div>
+                    <div class="stat-card">
+                        <p>Next Predicted Period</p>
+                        <h2 id="nextPeriodDate">Not available</h2>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>Current Cycle Phase</h3>
+                    <h2 id="currentPhase">Not available</h2>
+                    <p id="cycleStatus">Log your period to view cycle information.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Recent Symptoms</h3>
+                    <div id="recentSymptoms">
+                        <p>No symptoms recorded yet.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Calendar Section -->
+            <section id="calendar" class="page-section hidden">
+                <header class="top-header">
+                    <div>
+                        <h1>Cycle Calendar</h1>
+                        <p>View your period and predicted dates</p>
+                    </div>
+                    <button class="primary-btn" id="calendarLogBtn">
+                        + Log Period
+                    </button>
+                </header>
+
+                <div class="calendar-card">
+                    <div class="calendar-header">
+                        <button id="prevMonthBtn" class="secondary-btn">
+                            ← Previous
+                        </button>
+                        <h2 id="calendarMonth">Month Year</h2>
+                        <button id="nextMonthBtn" class="secondary-btn">
+                            Next →
+                        </button>
+                    </div>
+
+                    <div class="calendar-weekdays">
+                        <span>Sun</span>
+                        <span>Mon</span>
+                        <span>Tue</span>
+                        <span>Wed</span>
+                        <span>Thu</span>
+                        <span>Fri</span>
+                        <span>Sat</span>
+                    </div>
+
+                    <div id="calendarDays" class="calendar-days"></div>
+
+                    <div class="calendar-legend">
+                        <span>🔴 Period</span>
+                        <span>🟣 Predicted</span>
+                        <span>🟢 Today</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section id="history" class="page-section hidden">
+                <header class="top-header">
+                    <div>
+                        <h1>Period History</h1>
+                        <p>Review your previous period records</p>
+                    </div>
+                    <button class="primary-btn" id="historyLogBtn">
+                        + Add Record
+                    </button>
+                </header>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p>Total Periods</p>
+                        <h2 id="totalPeriods">0</h2>
+                    </div>
+                    <div class="stat-card">
+                        <p>Shortest Cycle</p>
+                        <h2 id="shortestCycle">--</h2>
+                    </div>
+                    <div class="stat-card">
+                        <p>Longest Cycle</p>
+                        <h2 id="longestCycle">--</h2>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3>All Records (<span id="historyCount">0</span>)</h3>
+                    <div id="cycleHistoryList">
+                        <p>No period records yet.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Symptoms Section -->
+            <section id="symptoms" class="page-section hidden">
+                <header class="top-header">
+                    <div>
+                        <h1>Symptom Tracker</h1>
+                        <p>Record and monitor your symptoms</p>
+                    </div>
+                    <button class="primary-btn" id="addSymptomBtn">
+                        + Add Symptom
+                    </button>
+                </header>
+
+                <div class="filter-row">
+                    <input
+                        type="search"
+                        id="symptomSearch"
+                        placeholder="Search symptoms..."
+                    >
+
+                    <select id="symptomFilter">
+                        <option value="all">All Symptoms</option>
+                        <option value="Mild">Mild</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Severe">Severe</option>
+                    </select>
+                </div>
+
+                <div class="info-card">
+                    <h3>Symptom Records (<span id="symptomCount">0</span>)</h3>
+                    <div id="symptomHistoryList">
+                        <p>No symptoms recorded yet.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Period Modal -->
+    <div id="periodModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Log Period</h2>
+
+            <form id="periodForm">
+                <label for="periodStartDate">Start Date</label>
+                <input type="date" id="periodStartDate" required>
+
+                <label for="periodEndDate">End Date</label>
+                <input type="date" id="periodEndDate">
+
+                <label for="periodFlow">Flow</label>
+                <select id="periodFlow">
+                    <option value="Light">Light</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="Heavy">Heavy</option>
+                </select>
+
+                <label for="periodNotes">Notes</label>
+                <textarea id="periodNotes" placeholder="Add notes..."></textarea>
+
+                <div class="modal-actions">
+                    <button type="submit" class="primary-btn">Save Period</button>
+                    <button type="button" id="cancelBtn" class="secondary-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Symptom Modal -->
+    <div id="symptomModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Add Symptom</h2>
+
+            <form id="symptomForm">
+                <label for="symptomDate">Date</label>
+                <input type="date" id="symptomDate" required>
+
+                <label for="symptomType">Symptom</label>
+                <select id="symptomType" required>
+                    <option value="">Select symptom</option>
+                    <option value="Cramps">Cramps</option>
+                    <option value="Headache">Headache</option>
+                    <option value="Back Pain">Back Pain</option>
+                    <option value="Bloating">Bloating</option>
+                    <option value="Mood Swings">Mood Swings</option>
+                    <option value="Fatigue">Fatigue</option>
+                    <option value="Acne">Acne</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="symptomIntensity">Intensity</label>
+                <select id="symptomIntensity" required>
+                    <option value="Mild">Mild</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Severe">Severe</option>
+                </select>
+
+                <label for="symptomNotes">Notes</label>
+                <textarea id="symptomNotes" placeholder="Add notes..."></textarea>
+
+                <div class="modal-actions">
+                    <button type="submit" class="primary-btn">Save Symptom</button>
+                    <button type="button" id="closeSymptomBtn" class="secondary-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Message -->
+    <div id="toast" class="toast"></div>
+
+    <script type="module" src="main.js"></script>
+
+</body>
+</html>

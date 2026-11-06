@@ -1,0 +1,41 @@
+{
+  "periods": [
+    {
+      "startDate": "2026-11-06",
+      "endDate": "",
+      "flow": "Medium",
+      "notes": "",
+      "id": 1
+    },
+    {
+      "startDate": "2026-11-06",
+      "endDate": "",
+      "flow": "Medium",
+      "notes": "",
+      "id": 2
+    },
+    {
+      "startDate": "2026-11-06",
+      "endDate": "",
+      "flow": "Heavy",
+      "notes": "6 days continuously",
+      "id": 3
+    },
+    {
+      "startDate": "2026-11-10",
+      "endDate": "",
+      "flow": "Medium",
+      "notes": "",
+      "id": 4
+    }
+  ],
+  "symptoms": [
+    {
+      "date": "2026-11-06",
+      "type": "Headache",
+      "intensity": "Moderate",
+      "notes": "",
+      "id": 1
+    }
+  ]
+}
